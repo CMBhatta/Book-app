@@ -14,12 +14,12 @@
             @endforeach
         </ul>
         @endif
-    <form action="{{route('book.store')}}" method="post">
+    <form action="{{route('school.store')}}" method="post">
         @csrf
         @method('post')
         <div>
             <label for="">Book Name:</label>
-            <input type="text" name="name" placeholder=""/>
+            <input type="text" name="name" placeholder=""autocomplete="off"/>
         </div>
         <div>
             <label for="">Author Name:</label>
