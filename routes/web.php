@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\DeatailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,7 @@ Route::get('/book/{id}',[BookController::class,'show'])->name('book.show');
 Route::get('/book/{book}/edit',[BookController::class,'edit'])->name('book.edit');
 Route::put('/book/{book}/update',[BookController::class,'update'])->name('book.update');
 Route::delete('/book/{book}/destroy',[BookController::class,'destroy'])->name('book.destroy');
-// Route for student folder
+// Route for schoolfolder
 Route::get('/first',[StudentController::class,'first'])->name('school.home');
 Route::get('/index',[StudentController::class,'index'])->name('school.index');
 Route::get('/first/create',[StudentController::class,'create'])->name('school.create');
@@ -33,3 +34,9 @@ Route::post('/first',[StudentController::class,'store'])->name('school.store');
 Route::get('/first/{school}/edit',[StudentController::class,'edit'])->name('school.edit');
 Route::put('/first/{school}/update',[StudentController::class,'update'])->name('school.update');
 Route::delete('/first/{school}/destroy',[StudentController::class,'destroy'])->name('school.destroy');
+// routes for students folder
+Route::get('/details',[DeatailController::class,'index'])->name('students.index');
+Route::get('/details/create',[DeatailController::class,'create'])->name('students.create');
+Route::post('/details',[DeatailController::class,'store'])->name('students.store');
+
+
