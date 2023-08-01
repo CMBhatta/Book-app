@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\DeatailController;
+use App\Http\Controllers\SchoolclassController;
+use App\Http\Controllers\SchoolstudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,5 +40,10 @@ Route::delete('/first/{school}/destroy',[StudentController::class,'destroy'])->n
 Route::get('/details',[DeatailController::class,'index'])->name('students.index');
 Route::get('/details/create',[DeatailController::class,'create'])->name('students.create');
 Route::post('/details',[DeatailController::class,'store'])->name('students.store');
+Route::get('/details/{details}/edit',[DeatailController::class,'edit'])->name('students.edit');
+Route::put('/details/{details}/update',[DeatailController::class,'update'])->name('students.update');
+Route::delete('/details/{details}/destroy',[DeatailController::class,'destroy'])->name('students.destroy');
 
+Route::resources(['schoolclass'=>SchoolclassController::class]);
+Route::resources(['schoolstudents'=>SchoolstudentController::class]);
 

@@ -57,21 +57,46 @@
 </head>
 <body>
     <h1>Welcome to our home page!</h1>
-    <div class="container btn-container">
+    <div class="container ">
         <div class="row">
             <div class="col-md-6">
-                <a href="{{route('school.index')}}" class="btn btn-class btn-lg">
+                <a href="{{url('schoolclass')}}" class="btn btn-class btn-lg">
                     <i class="icon fas fa-users"></i>
                     Class
                 </a>
             </div>
             <div class="col-md-6">
-                <a href="{{route('students.index')}}" class="btn btn-student btn-lg">
+                <a href="{{url('schoolstudent')}}" class="btn btn-student btn-lg">
                     <i class="icon fas fa-user-graduate"></i>
                     Student
                 </a>
             </div>
         </div>
+        <div class="row">
+            <div>
+                @if(session()->has('success_message'))
+                    <div>
+                        {{session('success_message')}}
+                    </div>
+                @endif
+                @if(session()->has('error_message'))
+                    <div>
+                        {{session('error_message')}}
+                    </div>
+                @endif
+                @if(session()->has('info_message'))
+                    <div>
+                        {{session('info_message')}}
+                    </div>
+                @endif
+            </div>
+            @yield('content')
+        </div>
+        
+    </div>
+    <div class="row">
+        
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>

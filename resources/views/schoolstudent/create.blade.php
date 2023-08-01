@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+@extends('layouts.app')
+@section('content')
     <h1>Students Form</h1>
    <div>
    @if($errors->any())
@@ -16,32 +10,32 @@
         </ul>
         @endif
    </div>
-    <form action="{{route('students.store')}}" method="post">
+    <form action="{{url('schoolstudents')}}" method="post">
         @csrf
         @method('post')
     <div>
         <label for="name">Name:</label>
-        <input type="text" name="name" value="Name">
+        <input type="text" name="name" placeholder="Name" value="">
     </div>
     <div>
         <label for="class">Class:</label>
-        <input type="text" name="class" value="Class">
+        <input type="text" name="class" value="">
     </div>
     <div>
         <label for="roll">Roll No:</label>
-        <input type="text" name="roll" value="roll">
+        <input type="text" name="roll" value="" placeholder="Roll No.">
     </div>
     <div>
         <label for="gender">Gender:</label>
         <select name="gender" id="gender">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
         </select>
     </div>
     <div>
         <label for="address">Address:</label>
-        <input type="text" name="address" value="Address">
+        <input type="text" name="address" value="" placeholder="">
     </div>
     <div>
         <label for="description">Description</label>
@@ -49,7 +43,7 @@
     </div>
     <div>
         <input type="submit" value="submit">
+        <a href="{{url('schoolstudents')}}">Back</a>
     </div>
     </form>
-</body>
-</html>
+    @endsection
