@@ -19,7 +19,11 @@
     </div>
     <div>
         <label for="class">Class:</label>
-        <input type="text" name="class" value="">
+        <select name="class">
+            @foreach($schoolclasses as $schoolclass )
+            <option value="{{$schoolclass->id}}">{{$schoolclass->name}}</option>
+            @endforeach
+        </select>
     </div>
     <div>
         <label for="roll">Roll No:</label>
