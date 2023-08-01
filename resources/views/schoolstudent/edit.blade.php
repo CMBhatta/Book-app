@@ -19,7 +19,11 @@
     </div>
     <div>
         <label for="class">Class:</label>
-        <input type="text" name="class" value="{{$schoolstudents->class}}">
+        <select name="class" id="class">
+            @foreach($schoolclasses as $schoolclass)
+                <option value="{{ $schoolclass->id }}" @if($schoolclass->id === $schoolstudents->class_id) selected @endif>{{ $schoolclass->name }}</option>
+            @endforeach
+        </select>
     </div>
     <div>
         <label for="roll">Roll No:</label>

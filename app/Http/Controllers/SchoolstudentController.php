@@ -48,8 +48,13 @@ class SchoolstudentController extends Controller
      */
     public function edit(string $id)
     {
-        $schoolstudents = Schoolstudent::findOrFail($id);
-        return view('schoolstudent.edit',compact('schoolstudents'));
+       // Fetch the school student record for the given ID
+    $schoolstudents = SchoolStudent::findOrFail($id);
+
+    // Fetch the school classes for the select dropdown
+    $schoolclasses = Schoolclass::all();
+
+    return view('schoolstudent.edit', compact('schoolstudents', 'schoolclasses'));
     }
     /**
      * Update the specified resource in storage.
