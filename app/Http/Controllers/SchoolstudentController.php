@@ -25,7 +25,10 @@ class SchoolstudentController extends Controller
     {  
         // to call class data
         $schoolclasses = Schoolclass::all();
-        return view('schoolstudent.create',compact('schoolclasses'));
+        $schoolstudents = Schoolstudent::all();
+        $totalstudent = count($schoolstudents);
+        $totalusers = Schoolclass::count();
+        return view('schoolstudent.create',compact('schoolclasses','schoolstudents','totalstudent','totalusers'));
     }
     /**
      * Store a newly created resource in storage.
@@ -55,8 +58,10 @@ class SchoolstudentController extends Controller
 
     // Fetch the school classes for the select dropdown
     $schoolclasses = Schoolclass::all();
+    $totalusers = count($schoolclasses);
+    $totalstudent = Schoolstudent::count();
 
-    return view('schoolstudent.edit', compact('schoolstudents', 'schoolclasses'));
+    return view('schoolstudent.edit', compact('schoolstudents', 'schoolclasses', 'totalusers', 'totalstudent'));
     }
     /**
      * Update the specified resource in storage.

@@ -77,6 +77,47 @@
             padding: 8px 12px;
             font-size: 16px;
         }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        td a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        td a:hover {
+            text-decoration: underline;
+        }
+         td form {
+            display: inline;
+            margin-left: 10px;
+        }
+        
+        td input[type="submit"] {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        td input[type="submit"]:hover {
+            background-color: #c82333;
+        }
     </style>
 </head>
 

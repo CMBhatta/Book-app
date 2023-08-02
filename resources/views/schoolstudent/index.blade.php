@@ -16,11 +16,10 @@
         </div>
         @endif
     </div>
-    <div>
-        
-        <a href="{{url('schoolstudents/create')}}">Add New</a>
-
-    </div>
+        <div class="button-container">
+            <!-- Adding a button with a link to a route -->
+            <a href="{{url('schoolstudents/create')}}" class="btn btn-primary">Add New</a>
+        </div>
     <div>
         <table border="1">
             <tr>
