@@ -12,9 +12,11 @@ class SchoolstudentController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    { 
         $schoolstudents = Schoolstudent::all();
-        return view('schoolstudent.index',compact('schoolstudents'));
+        $totalstudent = count($schoolstudents);
+        $totalusers = Schoolclass::count();
+        return view('schoolstudent.index',compact('schoolstudents','totalstudent','totalusers'));
     }
 /**
      * Show the form for creating a new resource.
@@ -84,6 +86,17 @@ class SchoolstudentController extends Controller
         return redirect('schoolstudents');
 
 }
+/**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        Schoolstudent::findOrFail($id)->delete();
+        Schoolclass::findOrFail($id)->delete();
+        session()->flash('success_message','One class has been deleted successfully!.');
+        return redirect('schoolstudents');
+
+    }
     
 }
 

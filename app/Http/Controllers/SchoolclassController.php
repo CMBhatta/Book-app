@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Schoolclass;
+use App\Models\Schoolstudent;
 use Illuminate\Http\Request;
 
 class SchoolclassController extends Controller
@@ -13,7 +14,9 @@ class SchoolclassController extends Controller
     public function index()
     {
         $schoolclasses = Schoolclass::all();
-        return view('schoolclass.index',compact('schoolclasses'));
+        $totalusers = count($schoolclasses);
+        $totalstudent = Schoolstudent::count();
+        return view('schoolclass.index',compact('schoolclasses', 'totalusers','totalstudent'));
     }
 
     /**
@@ -21,7 +24,10 @@ class SchoolclassController extends Controller
      */
     public function create()
     {
-        return view('schoolclass.create');
+        $schoolclasses = Schoolclass::all();
+        $totalusers = count($schoolclasses);
+        $totalstudent = Schoolstudent::count();
+        return view('schoolclass.create',compact('schoolclasses', 'totalusers','totalstudent'));
     }
 
     /**
@@ -52,8 +58,11 @@ class SchoolclassController extends Controller
      */
     public function edit(string $id)
     {
+        $schoolclasses = Schoolclass::all();
+        $totalusers = count($schoolclasses);
+        $totalstudent = Schoolstudent::count();
         $schoolclass = Schoolclass::findOrFail($id);
-        return view('schoolclass.edit',compact('schoolclass'));
+        return view('schoolclass.edit',compact('schoolclass', 'schoolclasses', 'totalusers','totalstudent'));
     }
 
     /**
