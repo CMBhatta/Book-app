@@ -19,11 +19,14 @@
     </div>
     <div>
         <label for="class">Class:</label>
-        <select name="class" id="class">
-            @foreach($schoolclasses as $schoolclass)
-                <option value="{{ $schoolclass->id }}" @if($schoolclass->id === $schoolstudents->class_id) selected @endif>{{ $schoolclass->name }}</option>
+        <select class="form-control" id="class" name="class">
+            @foreach($schoolclasses as $class)
+                <option value="{{ $class->id }}" {{ $class->id == $schoolstudents->class ? 'selected' : '' }}>
+                    {{ $class->name }}
+                </option>
             @endforeach
         </select>
+
     </div>
     <div>
         <label for="roll">Roll No:</label>
@@ -42,10 +45,11 @@
         <label for="address">Address:</label>
         <input type="text" name="address" value="{{$schoolstudents->roll}}">
     </div>
-    <div>
-        <label for="description">Description</label>
-        <textarea name="description" id="description" cols="30" rows="10" value="{{$schoolstudents->description}}"></textarea>
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-control" id="description" name="description">{{ $schoolstudents->description }}</textarea>
     </div>
+
     <div>
         <input type="submit" value="Update">
         <a href="{{url('schoolstudents')}}">Back</a>

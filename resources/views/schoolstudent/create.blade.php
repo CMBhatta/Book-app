@@ -41,9 +41,9 @@
         <label for="address">Address:</label>
         <input type="text" name="address" value="" placeholder="">
     </div>
-    <div>
-        <label for="description">Description</label>
-        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-control" id="description" name="description"></textarea>
     </div>
     <div>
         <input type="submit" value="submit">

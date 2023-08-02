@@ -97,7 +97,6 @@ class SchoolstudentController extends Controller
     public function destroy(string $id)
     {
         Schoolstudent::findOrFail($id)->delete();
-        Schoolclass::findOrFail($id)->delete();
         session()->flash('success_message','One class has been deleted successfully!.');
         return redirect('schoolstudents');
 
