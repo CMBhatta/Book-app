@@ -13,7 +13,7 @@ class SchoolclassController extends Controller
      */
     public function index()
     {
-        $schoolclasses = Schoolclass::all();
+        $schoolclasses = Schoolclass::with('students')->get();
         $totalusers = count($schoolclasses);
         $totalstudent = Schoolstudent::count();
         return view('schoolclass.index',compact('schoolclasses', 'totalusers','totalstudent'));

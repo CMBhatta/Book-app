@@ -9,4 +9,7 @@ class Schoolstudent extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    public function schoolclass(){
+        return $this->belongsTo(Schoolclass::class,'class');
+    }
 }

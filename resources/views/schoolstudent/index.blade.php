@@ -36,7 +36,7 @@
             <tr>
                 <td>{{$student->id}}</td>
                 <td>{{$student->name}}</td>
-                <td>{{$student->class}}</td>
+                <td>{{$student->schoolclass->name}}</td>
                 <td>{{$student->roll}}</td>
                 <td>{{$student->gender}}</td>
                 <td>{{$student->address}}</td>

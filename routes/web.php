@@ -6,6 +6,8 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\DeatailController;
 use App\Http\Controllers\SchoolclassController;
 use App\Http\Controllers\SchoolstudentController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\MobileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,4 +48,9 @@ Route::delete('/details/{details}/destroy',[DeatailController::class,'destroy'])
 
 Route::resources(['schoolclass'=>SchoolclassController::class]);
 Route::resources(['schoolstudents'=>SchoolstudentController::class]);
+
+// rote for mobiles and customer
+Route::get('add-customer', [CustomerController::class, 'add_customer']);
+Route::get('show-mobile/{id}', [CustomerController::class, 'show_mobile']);
+
 

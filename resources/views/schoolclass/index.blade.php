@@ -12,6 +12,7 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Level</th>
+                <th> Student Count</th>
                 <th>Action</th>
             </tr>
             @foreach($schoolclasses as $student)
@@ -19,6 +20,8 @@
             <td>{{$student->id}}</td>
             <td>{{$student->name}}</td>
             <td>{{$student->level}}</td>
+            <td>{{count($student->students)}}</td>
+
             <td>
             <a href="{{url('schoolclass/'.$student->id.'/edit')}}">Edit</a>
             <form method="post" action="{{url('schoolclass', $student->id)}}">
