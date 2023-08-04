@@ -52,5 +52,6 @@ Route::resources(['schoolstudents'=>SchoolstudentController::class]);
 // rote for mobiles and customer
 Route::get('add-customer', [CustomerController::class, 'add_customer']);
 Route::get('show-mobile/{id}', [CustomerController::class, 'show_mobile']);
+Route::get('show-customer/{id}', [MobileController::class, 'show_customer']);
 
 
